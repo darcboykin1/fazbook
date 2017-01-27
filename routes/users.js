@@ -39,4 +39,10 @@ router.delete('/:id', function(req,res,next){
   });
 });
 
+router.get('/:id/edit', function(req, res, next){
+  models.User.findById(req.params.id).then(function(user){
+    res.render('users/edit', { user:user });
+  });
+});
+
 module.exports = router;
